@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Dynamic brand accent (clay #A2705A by default). lib/theme.js recomputes this
+   scale from the single hex stored in the CRM and writes the same variables, so
+   these defaults only prevent a flash before that runs.
+--------------------------------------------------------------------------- */
+:root {
+  --brand-50: 250 247 239;
+  --brand-100: 244 237 218;
+  --brand-200: 233 219 182;
+  --brand-300: 219 196 137;
+  --brand-400: 205 174 92;
+  --brand-500: 193 154 51;
+  --brand-600: 166 132 44;
+  --brand-700: 136 107 36;
+  --brand-800: 106 82 29;
+  --brand-900: 79 60 22;
+  --brand-950: 59 44 17;
+  --brand-on: 42 26 11;
+}
+
+@layer base {
+  * { @apply border-line; }
+  html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+  h1, h2, h3, h4 { @apply font-display font-normal tracking-[-0.01em]; }
+  ::selection { background: rgb(var(--brand-500)); color: rgb(var(--brand-on)); }
+  :focus-visible { @apply outline-none ring-2 ring-brand-500/60 ring-offset-2 ring-offset-paper; }
+  img { @apply select-none; }
+  /* Keep the Fraunces optical size tasteful on big headings */
+  .font-display { font-optical-sizing: auto; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12; }
+
+  .eyebrow { @apply text-[11px] font-medium uppercase tracking-label text-ink-muted; }
+
+  /* Animated underline for inline links */
+  .link-underline {
+    @apply relative inline-block;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover { background-size: 100% 1px; }
+
+  /* Buttons ---------------------------------------------------------------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap text-[13px] font-medium
+           uppercase tracking-[0.12em] transition-all duration-300 ease-soft disabled:cursor-not-allowed
+           disabled:opacity-40 select-none;
+    padding: 0.95rem 1.75rem;
+  }
+  .btn-sm { padding: 0.6rem 1.1rem; @apply text-[11px] tracking-[0.1em]; }
+  .btn-ink { @apply btn bg-ink text-paper hover:bg-ink-soft; }
+  .btn-outline { @apply btn border border-ink/25 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-paper; }
+  .btn-brand { @apply btn bg-brand-500 text-brand-on hover:bg-brand-600; }
+  .btn-ghost { @apply btn bg-transparent text-ink hover:bg-ink/5; }
+  .btn-block { @apply w-full; }
+
+  /* Form fields ------------------------------------------------------------ */
+  .field {
+    @apply w-full border border-line-strong bg-paper px-4 py-3 text-[15px] text-ink
+           placeholder:text-ink-muted/70 transition-colors focus:border-ink focus:outline-none
+           focus:ring-0;
+  }
+  .field-label { @apply mb-1.5 block text-[11px] font-medium uppercase tracking-label text-ink-muted; }
+
+  /* Surfaces --------------------------------------------------------------- */
+  .hairline { @apply border-line; }
+  .chip {
+    @apply inline-flex items-center gap-1.5 border border-line-strong bg-paper px-3 py-1.5
+           text-[11px] font-medium uppercase tracking-[0.1em] text-ink-soft;
+  }
+  .badge-sale {
+    @apply inline-flex items-center bg-ink px-2.5 py-1 text-[10px] font-semibold uppercase
+           tracking-[0.12em] text-paper;
+  }
+  .badge-soft {
+    @apply inline-flex items-center bg-paper-2 px-2.5 py-1 text-[10px] font-medium uppercase
+           tracking-[0.12em] text-ink-soft;
+  }
+
+  .card-media { @apply relative overflow-hidden bg-paper-2; }
+
+  /* Loading shimmer */
+  .skeleton { @apply relative overflow-hidden bg-paper-2; }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.04), transparent);
+    animation: shimmer 1.6s infinite;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  /* Fluid display sizes used across hero / section headings */
+  .display-xl { font-size: clamp(2.6rem, 6vw, 5.5rem); line-height: 0.98; }
+  .display-lg { font-size: clamp(2rem, 4.2vw, 3.6rem); line-height: 1.02; }
+  .display-md { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.08; }
+}
+
+/* Keep react-toastify on-brand */
+.Toastify__toast {
+  font-family: 'Inter', system-ui, sans-serif;
+  border-radius: 0;
+  border: 1px solid #1c1b19;
+  color: #1c1b19;
+  background: #f4f1ea;
+}
+.Toastify__toast-theme--light { background: #f4f1ea; }
+.Toastify__progress-bar { background: rgb(var(--brand-500)); }

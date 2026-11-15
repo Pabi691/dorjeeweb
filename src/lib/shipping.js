@@ -1,0 +1,26 @@
+// Delivery charges. Free within the home state, a flat charge elsewhere in
+// India, and free anywhere once the order is big enough. The server checks the
+// same numbers in create_order (WebAppController) — keep the two in step.
+export const HOME_STATE = 'West Bengal';
+export const OUTSTATION_CHARGE = 40;
+export const FREE_ABOVE = 999;
+
+const flatten = (state) => String(state ?? '').toLowerCase().replace(/[^a-z]/g, '');
+
+export const isHomeState = (state) => {
+  const s = flatten(state);
+  return s === flatten(HOME_STATE) || s === 'wb';
+};
+
+// `orderValue` is the amount after any discount, before delivery.
+export const deliveryCharge = (state, orderValue) => {
+  if (isHomeState(state)) return 0;
+  if (Number(orderValue) >= FREE_ABOVE) return 0;
+  return OUTSTATION_CHARGE;
+};
+
+export const amountToFreeDelivery = (state, orderValue) => {
+  if (isHomeState(state)) return null;
+  const gap = FREE_ABOVE - Number(orderValue || 0);
+  return gap > 0 ? Math.ceil(gap) : null;
+};

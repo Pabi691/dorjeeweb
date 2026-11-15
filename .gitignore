@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build output (Hostinger builds this on deploy)
+dist/
+dist-ssr/
+
+# local-only env overrides (never commit these)
+.env
+.env.local
+.env.*.local
+
+# logs & os files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.local
+.DS_Store
+Thumbs.db

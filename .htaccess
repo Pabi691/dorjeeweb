@@ -1,0 +1,21 @@
+# Dorjee Fashion Factory storefront — single-page app routing.
+# Serve real files/folders directly; send everything else to index.html so
+# React Router can handle deep links and page refreshes (e.g. /shop, /product/x).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Let browsers cache the hashed asset bundles for a year (safe — filenames change on each build).
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>

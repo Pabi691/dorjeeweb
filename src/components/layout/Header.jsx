@@ -46,7 +46,7 @@ export default function Header({ onOpenCart, onOpenMenu, onOpenSearch }) {
 
         {/* center — logo */}
         <Link to="/" className="justify-self-center" onMouseEnter={() => setMega(null)} aria-label="Dorjee Fashion Factory — home">
-          <img src="/brand/logo.jpg" alt="Dorjee Fashion Factory" className="h-12 w-auto mix-blend-multiply sm:h-14" />
+          <img src="/brand/logo.jpeg" alt="Dorjee Fashion Factory" className="h-12 w-auto mix-blend-multiply sm:h-14" />
         </Link>
 
         {/* right — actions */}

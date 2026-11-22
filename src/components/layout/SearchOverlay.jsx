@@ -48,7 +48,7 @@ export default function SearchOverlay({ open, onClose }) {
         >
           <div className="wrap pt-6">
             <div className="flex items-center justify-between">
-              <img src="/brand/logo.jpg" alt="Dorjee Fashion Factory" className="h-10 w-auto mix-blend-multiply" />
+              <img src="/brand/logo.jpeg" alt="Dorjee Fashion Factory" className="h-10 w-auto mix-blend-multiply" />
               <button onClick={onClose} aria-label="Close search" className="grid h-10 w-10 place-items-center hover:bg-ink/5">
                 <FiX size={20} />
               </button>

@@ -19,9 +19,8 @@ jobs:
 
       - name: Force-push to GitLab
         env:
-          GL_USER: ${{ secrets.GITLAB_USER }}
           GL_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
           git push --force \
-            "https://${GL_USER}:${GL_TOKEN}@gitlab.com/Pabi691/dorjeeweb.git" \
+            "https://oauth2:${GL_TOKEN}@gitlab.com/Pabi691/dorjeeweb.git" \
             HEAD:main

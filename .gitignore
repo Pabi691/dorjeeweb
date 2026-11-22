@@ -17,3 +17,6 @@ yarn-error.log*
 *.local
 .DS_Store
 Thumbs.db
+
+# local source banners (originals; optimized copies live in public/img)
+banner-src/

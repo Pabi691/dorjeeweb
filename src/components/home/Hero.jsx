@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 
 const SLIDES = [
   {
-    img: '/banners/hero-1.svg',
+    img: '/img/banner-1.jpg',
     eyebrow: 'New Season',
     title: 'The Linen Edit',
     body: 'Breathable, fluid pieces cut from pure European linen — for long days and warm evenings.',
@@ -16,7 +16,7 @@ const SLIDES = [
     secondary: { label: 'Shop all', to: '/shop' },
   },
   {
-    img: '/banners/hero-2.svg',
+    img: '/img/banner-2.jpg',
     eyebrow: 'Considered essentials',
     title: 'Made to be worn for years',
     body: 'Natural fibres, quiet design and honest prices. The clothes you reach for first.',
@@ -24,7 +24,7 @@ const SLIDES = [
     secondary: { label: 'Shop Men', to: '/shop/men' },
   },
   {
-    img: '/banners/hero-3.svg',
+    img: '/img/banner-3.jpg',
     eyebrow: 'Retail & Trade',
     title: 'Now open to wholesale',
     body: 'Stock Dorjee in your store with trade pricing, low minimums and fast dispatch.',

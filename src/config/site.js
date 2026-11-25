@@ -9,9 +9,9 @@ export const SITE = {
   phone: '+91 91638 06873',
   whatsapp: '919163806873',
   address: 'B-8/19 Diamond Park Joka, LP 218/4/9/1/2/12, Kolkata 700104',
-  instagram: 'https://instagram.com',
+  instagram: 'https://www.instagram.com/dorjee_fashion_factory',
   social: {
-    instagram: 'https://instagram.com',
+    instagram: 'https://www.instagram.com/dorjee_fashion_factory',
     pinterest: 'https://pinterest.com',
     facebook: 'https://facebook.com',
   },

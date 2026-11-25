@@ -46,7 +46,7 @@ export default function Footer() {
       <div className="wrap grid gap-10 py-14 md:grid-cols-[1.4fr_repeat(3,1fr)]">
         <div>
           <Link to="/" className="inline-block" aria-label="Dorjee Fashion Factory — home">
-            <img src="/brand/logo.jpeg" alt="Dorjee Fashion Factory" className="h-16 w-auto mix-blend-multiply" />
+            <img src="/brand/logo.png" alt="Dorjee Fashion Factory" className="h-16 w-auto" />
           </Link>
           <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-ink-soft">{SITE.footerNote}</p>
           <a

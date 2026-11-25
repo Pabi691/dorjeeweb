@@ -20,3 +20,6 @@ Thumbs.db
 
 # local source banners (originals; optimized copies live in public/img)
 banner-src/
+
+# raw dropped source assets (PDFs, originals) — processed copies are used instead
+public/img/usethis/
